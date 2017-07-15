@@ -30,6 +30,10 @@ development:
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
   #username: elro
+  username: <%= ENV['PG_USER'] %>
+
+  # The password associated with the postgres role (username).
+  password: <%= ENV['PG_PWD'] %>
 
   # The password associated with the postgres role (username).
   #password:
