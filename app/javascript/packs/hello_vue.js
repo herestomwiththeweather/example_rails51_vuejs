@@ -5,9 +5,12 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue'
+import EmployeeRow from '../components/employee_row.vue'
 import App from './app.vue'
-
 document.addEventListener('DOMContentLoaded', () => {
+  App.components = {
+    EmployeeRow
+  }
   const app = new Vue(App).$mount('#employees')
 
   console.log(app)

@@ -7,16 +7,14 @@
   </thead>
 
   <tbody>
-    <tr v-for="employee in employees">
-      <td>{{employee.name}}</td>
-      <td>{{employee.email}}</td>
-      <td>{{employee.manager}}</td>
+    <tr is="employee-row" v-for="employee in employees" :employee="employee">
     </tr>
   </tbody>
 </table>
 </template>
 
 <script>
+
 export default {
   data: function () {
     return {
