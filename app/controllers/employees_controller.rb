@@ -31,12 +31,12 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
 
     respond_to do |format|
-      if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        format.json { render :show, status: :created, location: @employee }
-      else
-        format.html { render :new }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
+      format.json do
+        if @employee.save
+          render :json => @employee
+        else
+          render :json => { :errors => @employee.errors.messages }, :status => 422
+        end
       end
     end
   end
@@ -73,6 +73,7 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.fetch(:employee, {})
+      #params.fetch(:employee, {})
+      params.require(:employee).permit(:name, :email, :manager)
     end
 end
