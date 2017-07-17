@@ -69,7 +69,7 @@ export default {
 	method: 'DELETE',
 	url: '/employees/' + that.employee.id + '.json',
 	success: function(res) {
-	  // XXX
+	  that.$el.remove();
 	},
 	error: function(res) {
 	  that.errors = res.responseJSON.errors
