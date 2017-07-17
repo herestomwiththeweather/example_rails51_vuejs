@@ -60,6 +60,7 @@ export default {
 	url: '/employees.json',
 	success: function(res) {
 	  that.errors = {};
+	  that.employee = {};
 	  that.employees.push(res);
 	},
 	error: function(res) {
