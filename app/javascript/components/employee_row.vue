@@ -24,6 +24,7 @@
     <button v-if="editMode" @click="updateEmployee">Save</button>
     <button v-else @click="editMode = true">Edit</button>
     <button v-if="!editMode" @click="toggleManagerStatus">{{ employee.manager ? 'Demote' : 'Promote' }}</button>
+    <button v-if="!editMode" @click="fireEmployee" style="color:red">Fire</button>
   </td>
 </tr>
 </template>
@@ -61,6 +62,19 @@ export default {
 	  that.errors = res.responseJSON.errors;
 	}
       });
+    },
+    fireEmployee: function () {
+      var that = this;
+      $.ajax({
+	method: 'DELETE',
+	url: '/employees/' + that.employee.id + '.json',
+	success: function(res) {
+	  // XXX
+	},
+	error: function(res) {
+	  that.errors = res.responseJSON.errors
+	}
+      })
     }
   }
 }
