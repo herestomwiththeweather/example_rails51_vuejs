@@ -46,7 +46,7 @@ class SessionsController < ApplicationController
   end
 
   def setup_oauth_params
-    @client_id = 'http://gibson.local:3000/'
-    @redirect_uri = 'http://gibson.local:3000/callback'
+    @client_id = 'https://austin-indieauth-demo.herokuapp.com/'
+    @redirect_uri = 'https://austin-indieauth-demo.herokuapp.com/callback'
   end
 end
